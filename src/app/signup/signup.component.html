@@ -1,0 +1,38 @@
+<div class="container-fluid bg-dark">
+<div class="container py-5 my-5">
+    <div class="card col-6 offset-3 my-5 py-5">
+    <h1 class="text-center"> SIGN UP</h1>
+    <form>
+        <label for="name" class="ml-4 ">Name</label>
+        <div class="form-group ">
+            <div class="form-group col-sm-4 ">
+                <input type="text" class="form-control" [(ngModel)]="signup.fname" id="fname" name="fname" placeholder="first name">
+            </div>
+            <div class="form-group col-sm-4">
+                <input type="text" class="form-control" [(ngModel)]="signup.mname" id="mname" name="mname" placeholder="middle name">
+            </div>
+                <div class="form-group col-sm-4">
+                    <input type="text" name="lname" [(ngModel)]="signup.lname"  id="lname" placeholder="last name" class="form-control">
+                </div>
+        <div class="form-group col-12 ">
+            <label for="phonenumber">Phone Number</label>
+            <input type="text" class="form-control" [(ngModel)]="signup.phonenumber" id="phonenumber" name="phonenumber" placeholder="phone number">
+        </div>
+        <div class="form-group col-12">
+                <label for="username">User Name</label>
+                <input type="text" [(ngModel)]="signup.username" class="form-control" id="username" name="username" placeholder="user name">
+            </div>
+        <div class="form-group col-12">
+            <label for="password"> Password</label>
+            <input type="text" [(ngModel)]="signup.password" class="form-control" id="password" name="password" placeholder="password">
+        </div>
+    </div>
+
+        <div class="offset-md-8">
+        <button type="submit" class="btn btn-primary"  (click)="submit()">Submit</button>
+        <button type="reset" class="btn btn-success ml-3">Reset</button>
+    </div>
+    </form>
+</div>
+</div>
+</div>

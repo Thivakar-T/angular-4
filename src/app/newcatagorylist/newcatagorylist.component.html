@@ -1,0 +1,25 @@
+<div class="container">
+        <h1 class="text-center"> Newcatagory</h1>
+        <button class="btn btn-primary offset-10" [routerLink]="['/NewcatagoryComponent']"> New Catagory</button>
+        <table class="table table-bordered   text-center mt-5">
+            <thead class="bg-dark text-light">
+                <tr>
+                        <th>Sl.No</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let rows of CatagoryArr;let i =index">
+                            <td>{{i+1}}</td>
+                                <td>{{rows.name}}</td>
+                            <td>{{rows.type}}</td>
+                            <td>{{rows.description}}</td>
+                            <td> <button class="btn btn-primary" routerLink = '/newcatagory/{{rows.id}}'>Edit</button>
+                                <button class="btn btn-dark ml-2" (click) = "get(rows.id)">Delete</button></td>
+                          </tr>
+            </tbody>
+        </table>
+    </div>

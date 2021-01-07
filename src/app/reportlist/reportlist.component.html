@@ -1,0 +1,17 @@
+<div class="container">
+        <h1 class="text-center"> Report List</h1>
+        <button class="btn btn-primary offset-10" [routerLink]="['/ReportComponent']"> Report List</button>
+        <table class="table table-bordered   text-center mt-5">
+            <thead class="bg-dark text-light">
+                <tr>
+                        <th>Description</th>
+                        <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let rows of reportArr;let i =index">
+                            <td>{{rows.type}}</td>
+                            <td>{{rows.description}}</td>
+            </tbody>
+        </table>
+    </div>

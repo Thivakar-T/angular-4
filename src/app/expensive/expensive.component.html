@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="text-center">New Expense</h1>
+    <div class="form-group col-6 offset-3">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="expenseobj.name" id="name" placeholder="name">
+    </div>
+    <div class="form-group col-6 offset-3">
+        <label for="categery">Categery</label>
+        <select type="text" class="form-control" [(ngModel)]="expenseobj.categery" placeholder="choose" id="categery">
+            <option value="">choose..</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+        </select>
+
+    </div>
+    <div class="form-group col-6 offset-3">
+        <label for="date">Date</label>
+        <input type="date" [(ngModel)]="expenseobj.date" class="form-control" id="date" placeholder="date">
+    </div>
+    <div class="form-group col-6 offset-3">
+        <label for="amount">Amount</label>
+        <input type="text" [(ngModel)]="expenseobj.amount" class="form-control" id="amount" placeholder="amount">
+    </div>
+    <div class="offset-7">
+        <button type="submit" class="btn btn-primary" [routerLink]="['/ExpensivelistComponent']" (click)="submit()">Submit</button>
+        <button type="reset" class="btn btn-success ml-3">Reset</button>
+    </div>
+
+</div>

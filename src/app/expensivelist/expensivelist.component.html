@@ -1,0 +1,28 @@
+<div class="container">
+        <h1 class="text-center"> Expense</h1>
+        <button class="btn btn-primary offset-10" [routerLink]="['/ExpensiveComponent']"> Expense</button>
+        <table class="table table-bordered   text-center mt-5">
+            <thead class="bg-dark text-light ">
+                <tr id="list_head">
+                    <th>Sl.No</th>
+                    <th>Categery</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="displayTable">
+                    <tr *ngFor="let rows of expenseArr;let i =index">
+                            <td>{{i+1}}</td>
+                            <td>{{rows.categery}}</td>
+                            <td>{{rows.name}}</td>
+                            <td>{{rows.date}}</td>
+                            <td>{{rows.amount}}</td>
+                            <!-- <td>{{rows.Action}}</td> -->
+                            <td> {{rows.Action}}<button class="btn btn-primary" routerLink = '/ExpensiveComponent/{{rows.id}}'>Edit</button>
+                                <button class="btn btn-dark ml-2" (click) = "get(rows.id)">Delete</button></td>
+                          </tr>
+            </tbody>
+        </table>
+    </div>

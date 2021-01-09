@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class IncomeService {
   private url ='https://5ff6a887e7164b0017e19873.mockapi.io/income/'
   constructor(private http : HttpClient) { }
-  addStudent(data :any){
+  add(data :any){
     return this.http.post<any>(this.url,data);
     }
   
-    getAllStudents(){
+    getAll(){
       return this.http.get<any>(this.url);
       }
       getOneData(id :any){

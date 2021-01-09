@@ -38,7 +38,7 @@ export class IncomeComponent implements OnInit {
       })
     }
   else{
-    this.IncomeService.addStudent(this.incomeobj).subscribe(res => {
+    this.IncomeService.add(this.incomeobj).subscribe(res => {
     this.router.navigateByUrl('/IncomelistComponent');
    
      }, err => {

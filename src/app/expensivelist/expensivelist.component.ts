@@ -19,6 +19,7 @@ export class ExpensivelistComponent implements OnInit {
   ngOnInit(): void {
     this.ExpensiveService.getAllStudents().subscribe(res => {
       this.expenseArr = res;
+      console.log(this.expenseArr);
     }, err => {
       console.log(err);
     });

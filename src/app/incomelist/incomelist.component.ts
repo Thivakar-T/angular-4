@@ -17,8 +17,9 @@ export class IncomelistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.IncomeService.getAllStudents().subscribe(res => {
+    this.IncomeService.getAll().subscribe(res => {
       this.incomeArr = res;
+      console.log(this.incomeArr);
     }, err => {
       console.log(err);
     });

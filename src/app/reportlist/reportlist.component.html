@@ -1,17 +1,124 @@
 <div class="container">
         <h1 class="text-center"> Report List</h1>
         <button class="btn btn-primary offset-10" [routerLink]="['/ReportComponent']"> Report List</button>
-        <table class="table table-bordered   text-center mt-5">
+        <div class="row">
+                <div class="col-6">
+                        <table class="table table-bordered   text-center mt-5 mr-5">
+                                <thead class="bg-dark text-light">
+                                        <tr class="text-center">
+                                                <th class="text-center">Income</th>
+                                                <th class="text-center">Amount</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let rows of reportArr;let i =index">
+                                                <td>{{rows.categery}} </td>
+                                                <td> {{rows.amount}}</td>
+
+                                                
+                                        </tr>
+
+                                </tbody>
+                                <tfoot style="vertical-align:bottom">
+                                                <tr>
+                                                  <td><b>Total</b></td>
+                                                  <td><b>${{alltotal}}</b></td>
+                                                </tr>
+                                            </tfoot>
+                                
+                        </table>
+                </div>
+                <div class="col-6 tab">
+                        <table class="table table-bordered   text-center mt-5">
+                                <thead class="bg-dark text-light">
+                                        <tr>
+
+                                                <th class="text-center">Expense</th>
+                                                <th class="text-center">Amount</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let row of expensearr;let i =index">
+
+                                                <td>{{row.categery}}</td>
+                                                <td>{{row.amount}}</td>
+                                                
+                                        </tr>
+
+                                </tbody>
+                                <tfoot style="vertical-align:bottom" >
+                                                <tr>
+                                                  <td><b>Total</b></td>
+                                                  <td><b>${{total}}</b> </td>
+                                                </tr>
+                                            </tfoot>
+                        </table>
+                </div>
+                
+        </div>
+        <div>
+                        <h2 class="text-center">Cash In Hand :$ {{all}}</h2>
+        </div>
+       
+        <!-- <table class="table table-bordered   text-center mt-5">
             <thead class="bg-dark text-light">
                 <tr>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th>sn</th>
+                        <th>Income</th>
+                        <th>Amount</th>
+                        
+                        <th>Auction</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                     <tr *ngFor="let rows of reportArr;let i =index">
-                            <td>{{rows.type}}</td>
-                            <td>{{rows.description}}</td>
+                            <td >{{i+1}}</td>
+                            <td >{{rows.categery}} </td>
+                            <td> {{rows.amount}}</td>
+                            
+                            <td> 
+                                    <button class="btn btn-primary" >Edit</button>
+                                    <button class="btn btn-dark ml-2" >Delete</button>
+                                </td>
+                    </tr>
+                    
             </tbody>
-        </table>
-    </div>
+           <tfoot style="vertical-align:bottom">
+                    <tr style="height:100px">
+                      <td>Sum</td>
+                      <td>$180</td>
+                    </tr>
+                </tfoot> -->
+        <!-- </table>
+        <table class="table table-bordered   text-center mt-5">
+                <thead class="bg-dark text-light">
+                    <tr>
+                            <th>sn</th>
+                            
+                            <th>Expense</th>
+                            <th>Amount</th>
+                            <th>Auction</th>
+                    </tr>
+                </thead>
+                <tbody >
+                        <tr *ngFor="let row of expensearr;let i =index">
+                                <td >{{i+1}}</td>
+                               
+                                <td >{{row.categery}}</td>
+                                <td>{{row.amount}}</td>
+                                <td> 
+                                        <button class="btn btn-primary" >Edit</button>
+                                        <button class="btn btn-dark ml-2" >Delete</button>
+                                    </td>
+                        </tr>
+                        
+                </tbody>
+                <tfoot style="vertical-align:bottom">
+                        <tr style="height:100px">
+                          <td>Sum</td>
+                          <td>$180</td>
+                        </tr>
+                    </tfoot> 
+            </table> -->
+</div>

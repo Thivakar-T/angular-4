@@ -26,6 +26,7 @@ export class NewcatagoryComponent implements OnInit {
     if (this.id) {
       this.getOneProfile();
     }
+    this.Catagoryobj.type='';
   }
   getOneProfile() {
     this.id;

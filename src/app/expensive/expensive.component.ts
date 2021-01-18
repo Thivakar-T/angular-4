@@ -25,6 +25,7 @@ export class ExpensiveComponent implements OnInit {
     if (this.id) {
       this.getOneProfile();
     }
+    this.expenseobj.categery='';
   }
   getOneProfile() {
     this.id;

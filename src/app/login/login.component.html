@@ -1,18 +1,24 @@
 <div class="container-fluid bg-dark">
 <div class="container py-5 ">
         <div class="card col-6 offset-3  py-4 ">
-    <form >
+    <form  class="form" #registerForm="ngForm" (ngSubmit)="registerForm.valid && login()" novalidate>
     <h1 class="text-center  py-5">LOGIN</h1>
     <div class="form-group col-10 offset-1 ">
     <label for="username">USER NAME</label>
-    <input type="text" [(ngModel)]="signup.username" class="form-control" id="username" name="username"  placeholder="username" autocomplete="on"/>
+    <input type="text" [(ngModel)]="signup.username" class="form-control" id="username" #username="ngModel" required name="username"  placeholder="Username" autocomplete="on"/>
+    <span class="text-danger" *ngIf="(username.touched || registerForm.submitted) && username.errors?.required">
+        required
+    </span>
     </div>
     <div class="form-group col-10 offset-1">
     <label for="exampleInputPassword1">PASSWORD</label>
-    <input type="password" [(ngModel)]="signup.password" class="form-control" id="password" name="password" placeholder="Password">
+    <input type="password" #password="ngModel" required [(ngModel)]="signup.password" class="form-control" id="password" name="password" placeholder="Password">
+    <span class="text-danger" *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+        required
+    </span>
     </div>
     <div class="offset-sm-7  py-3">
-            <button  type="submit" class="btn btn-primary " (click)="login()">Submit</button>
+            <button  type="submit" class="btn btn-primary " (click)="login()">LOG IN</button>
             <h3 class="py-4">New ? <a href="" [routerLink]="['/signup']">Sign up</a></h3>
     </div>
     

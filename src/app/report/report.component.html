@@ -1,5 +1,5 @@
 <div class="container mt-3">
-        <form>
+        <form  class="form" #registerForm="ngForm" (ngSubmit)="registerForm.valid && submit()" novalidate>
                 <h2 class="text-center">Report</h2>
                 <!-- <button type="submit" class="btn btn-success yar" routerLink="/ResultComponent">Back</button> -->
 
@@ -10,18 +10,24 @@
                 <div class="row">
                         <div class="form-group ml-3 mr-4 col">
                                 <label for="from">From date</label>
-                                <input type="date" class="form-control" [(ngModel)]="date.fromDate" name="from"
+                                <input type="date" class="form-control" [(ngModel)]="date.fromDate" name="from" #from="ngModel" required
                                         id="from" placeholder="From date">
+                                        <span class="text-danger" *ngIf="(from.touched || registerForm.submitted) && from.errors?.required">
+                                                required
+                                            </span>
                         </div>
                         <div class="form-group ml-3 mr-4 col">
                                 <label for="to">To date</label>
-                                <input type="date" class="form-control" name="to" [(ngModel)]="date.toDate"
+                                <input type="date" class="form-control" #to="ngModel" required name="to" [(ngModel)]="date.toDate"
                                         id="description" placeholder="To date">
+                                        <span class="text-danger" *ngIf="(to.touched || registerForm.submitted) && to.errors?.required">
+                                                required
+                                            </span>
                         </div>
                 </div>
                 <div class="form-row ml-3 mt-3">
                         <button type="submit" (click)="submit()" class="btn btn-primary ml-1">Submit</button>
-                        <button type="reset" class="btn btn-primary ml-3">Reset</button>
+                        <button type="reset" (click)="reset()" class="btn btn-primary ml-3">Reset</button>
 
                 </div>
 

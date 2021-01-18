@@ -15,7 +15,7 @@
             <select type="text" [(ngModel)]="incomeobj.categery" class="form-control" #categery="ngModel" required
                 placeholder="choose" id="categery" name="categery">
                 <option value="">choose..</option>
-                <option>Out source</option>
+                <option value="2">Out source</option>
             </select>
             <span class="text-danger" *ngIf="(categery.touched || registerForm.submitted) && categery.errors?.required">
                 required

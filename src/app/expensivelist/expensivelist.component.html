@@ -21,7 +21,7 @@
                             <td>{{rows.amount}}</td>
                             <!-- <td>{{rows.Action}}</td> -->
                             <td> {{rows.Action}}<button class="btn btn-primary" routerLink = '/ExpensiveComponent/{{rows.id}}'>Edit</button>
-                                <button class="btn btn-dark ml-2" (click) = "get(rows.id)">Delete</button></td>
+                                <button class="btn btn-dark ml-2" routerLink = '/ExpensivelistComponent/{{rows.id}}' (click) = "get(rows.id)">Delete</button></td>
                           </tr>
             </tbody>
         </table>

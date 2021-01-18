@@ -23,11 +23,11 @@ export class ExpensivelistComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+    
   }
   get(id:any) {
     this.id = id;
     this.deleteOneProfile();
-
   }
   deleteOneProfile() {
     this.id;

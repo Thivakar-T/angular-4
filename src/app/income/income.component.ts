@@ -26,6 +26,8 @@ export class IncomeComponent implements OnInit {
     if (this.id) {
       this.getOneProfile();
     }
+    this.incomeobj.categery='';
+
   }
   getOneProfile() {
     this.id;

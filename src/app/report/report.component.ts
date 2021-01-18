@@ -102,16 +102,25 @@ export class ReportComponent implements OnInit {
   }
   console.log(this.totall)
   }
+  reset(){
+    this.incomeArray = []
+    this.expenseArray = []
+    this.totall=0;
+    this.total=0;
+    this.totalll=0
+
+  }
+
   
   cash() {
   this.totalll = this.total - this.totall ;
-    // if(this.totalll>0){
-    //   this.totalll
-    //   this.isProfit=true;
-    // }
-    // else{
-    //   this.totalll=(this.totalll*this.alt)
-    // }
+    if(this.totalll>0){
+      this.totalll
+      this.isProfit=true;
+    }
+    else{
+      this.totalll=(this.totalll*this.alt)
+    }
   console.log(this.totall);
   }
     

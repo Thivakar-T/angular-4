@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SignupService } from './signup.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,9 @@ import { SignupService } from './signup.service';
 export class SignupComponent implements OnInit {
   signup: any = {};
   id: any;
+  submitted = false;
+  registerForm?:NgForm;
+
   constructor(
     private _SignupService: SignupService,
     private router: Router,
@@ -18,6 +22,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(){
+    this.submitted = true;
     console.log(this.signup);
     this._SignupService.addUser(this.signup).subscribe(response => {
     console.log(response);

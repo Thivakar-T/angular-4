@@ -1,73 +1,64 @@
 <div class="container-fluid bg-dark">
-    <div class="container py-5 my-5">
-        <div class="card col-6 offset-3 my-5 p-5">
+    <div class="container py-5 ">
+        <div class="card col-6 offset-3  p-5">
             <h1 class="text-center"> SIGN UP</h1>
-            <form>
+            <form class="form" #registerForm="ngForm" (ngSubmit)="registerForm.valid && submit()">
                 <div class="form-group">
                     <label for="name" class="ml-4 ">Name</label>
                     <div class="row ml-1">
-                        <div class="col-4 py-3">
-                            <input type="text" class="form-control" [(ngModel)]="signup.fname" id="fname" name="fname"
-                                placeholder="first name">
+                        <div class="col-4 py-1">
+                            <input type="text" class="form-control" #fname="ngModel" required [(ngModel)]="signup.fname"
+                                id="fname" name="fname" placeholder="first name">
+                                <span class="text-danger" *ngIf="(fname.touched || registerForm.submitted) && fname.errors?.required">
+                                        required
+                                    </span>
                         </div>
-                        <div class="col-4 py-3">
-                                <input type="text" class="form-control" [(ngModel)]="signup.mname" id="mname" name="mname"
-                                placeholder="middle name">
+                        <div class="col-4 py-1">
+                            <input type="text" class="form-control" #mname="ngModel" required [(ngModel)]="signup.mname"
+                                id="mname" name="mname" placeholder="middle name">
+                                <span class="text-danger" *ngIf="(mname.touched || registerForm.submitted) && mname.errors?.required">
+                                        required
+                                    </span>
                         </div>
-                        <div class="col-4 py-3">
-                                <input type="text" name="lname" [(ngModel)]="signup.lname" id="lname" placeholder="last name"
-                                class="form-control">
+                        <div class="col-4 py-1">
+                            <input type="text" #lname="ngModel" required name="lname" [(ngModel)]="signup.lname"
+                                id="lname" placeholder="last name" class="form-control">
+                                <span class="text-danger" *ngIf="(lname.touched || registerForm.submitted) && lname.errors?.required">
+                                        required
+                                    </span>
                         </div>
 
-                        <div class="form-group col-12 py-2">
+                        <div class="form-group col-12 py-1">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control" [(ngModel)]="signup.phonenumber" id="phonenumber"
-                                name="phonenumber" placeholder="phone number">
+                            <input type="number" #phonenumber="ngModel" required class="form-control"
+                                [(ngModel)]="signup.phonenumber" id="phonenumber" name="phonenumber"
+                                placeholder="phone number">
+                                <span class="text-danger" *ngIf="(phonenumber.touched || registerForm.submitted) && phonenumber.errors?.required">
+                                        required
+                                    </span>
                         </div>
-                        <div class="form-group col-12 py-2">
+                        <div class="form-group col-12 py-1">
                             <label for="username">User Name</label>
-                            <input type="text" [(ngModel)]="signup.username" class="form-control" id="username"
-                                name="username" placeholder="user name">
+                            <input type="text" #username="ngModel" required [(ngModel)]="signup.username"
+                                class="form-control" id="username" name="username" placeholder="user name">
+                                <span class="text-danger" *ngIf="(username.touched || registerForm.submitted) && username.errors?.required">
+                                        required
+                                    </span>
                         </div>
-                        <div class="form-group col-12 py-2">
+                        <div class="form-group col-12 py-1">
                             <label for="password"> Password</label>
-                            <input type="text" [(ngModel)]="signup.password" class="form-control" id="password"
-                                name="password" placeholder="password">
+                            <input type="text" #password="ngModel" required [(ngModel)]="signup.password"
+                                class="form-control" id="password" name="password" placeholder="password">
+                                <span class="text-danger" *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+                                        required
+                                    </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- <div class="form-group col-sm-4 ">
-                        <input type="text" class="form-control" [(ngModel)]="signup.fname" id="fname" name="fname"
-                            placeholder="first name">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <input type="text" class="form-control" [(ngModel)]="signup.mname" id="mname" name="mname"
-                            placeholder="middle name">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="lname" [(ngModel)]="signup.lname" id="lname" placeholder="last name"
-                            class="form-control">
-                    </div> -->
-                <!-- <div class="form-group col-12 ">
-                        <label for="phonenumber">Phone Number</label>
-                        <input type="text" class="form-control" [(ngModel)]="signup.phonenumber" id="phonenumber"
-                            name="phonenumber" placeholder="phone number">
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="username">User Name</label>
-                        <input type="text" [(ngModel)]="signup.username" class="form-control" id="username"
-                            name="username" placeholder="user name">
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="password"> Password</label>
-                        <input type="text" [(ngModel)]="signup.password" class="form-control" id="password"
-                            name="password" placeholder="password">
-                    </div> -->
-                <!-- </div> -->
 
-                <div class="offset-md-8">
-                    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+                <div class="offset-md-7">
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                     <button type="reset" class="btn btn-success ml-3">Reset</button>
                 </div>
             </form>

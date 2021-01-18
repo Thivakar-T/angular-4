@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatagoryService } from '../catagory.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-newcatagory',
@@ -10,6 +11,9 @@ import { CatagoryService } from '../catagory.service';
 export class NewcatagoryComponent implements OnInit {
   Catagoryobj: any = {};
   id: any;
+  submitted = false;
+  registerForm?:NgForm;
+
   constructor(
     private CatagoryService: CatagoryService,
     private router: Router,
@@ -31,7 +35,8 @@ export class NewcatagoryComponent implements OnInit {
   })
   }
   submit() {
-    
+    this.submitted = true;
+
     if (this.id) {
       this.CatagoryService.editOneData(this.id, this.Catagoryobj).subscribe(res => {
         this.router.navigateByUrl('/NewcatagorylistComponent');

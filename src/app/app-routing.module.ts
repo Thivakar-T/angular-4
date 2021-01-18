@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'DashboardComponent', component: DashboardComponent },
   { path: 'ExpensiveComponent', component: ExpensiveComponent },
+  { path: 'ExpensiveComponent/:id', component: ExpensiveComponent },
   { path: 'ExpensivelistComponent', component: ExpensivelistComponent },
   { path: 'IncomeComponent', component: IncomeComponent },
   { path: 'IncomelistComponent', component: IncomelistComponent },

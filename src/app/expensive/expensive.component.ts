@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExpensiveService } from '../expensive.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-expensive',
   templateUrl: './expensive.component.html',
@@ -10,6 +10,9 @@ import { ExpensiveService } from '../expensive.service';
 export class ExpensiveComponent implements OnInit {
   expenseobj: any = {};
   id: any;
+  submitted = false;
+  registerForm?:NgForm;
+
   constructor(
     private ExpensiveService: ExpensiveService,
     private router: Router,
@@ -31,7 +34,8 @@ export class ExpensiveComponent implements OnInit {
   })
   }
   submit() {
-    
+    this.submitted = true;
+
     if (this.id) {
       this.ExpensiveService.editOneData(this.id, this.expenseobj).subscribe(res => {
         this.router.navigateByUrl('/ExpensivelistComponent');

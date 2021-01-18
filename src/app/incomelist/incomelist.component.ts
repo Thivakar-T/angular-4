@@ -23,6 +23,7 @@ export class IncomelistComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+    // this.get()
   }
   get(id:any) {
     this.id = id;
@@ -33,10 +34,8 @@ export class IncomelistComponent implements OnInit {
     this.id;
    
     this.IncomeService.removeOneData(this.id).subscribe(res => {
-    
       this.router.navigateByUrl('/empty', { skipLocationChange: true });
       setTimeout(() => this.router.navigate(['/IncomelistComponent']), 0);
-
     })
   }
 

@@ -1,22 +1,30 @@
 <div class="container-fluid  py-5 dd">
-<div class="container py-5">
-    <div class="card py-5 ">
-        <h1 class="text-center py-5"> DashBoard</h1>
-        <div class="row py-5 d-flex justify-content-between">
-            <div class="card col-3 text-center"> 
-                <h3>Income</h3>
-                <h3>${{alltotal}}</h3>
-            </div>
-            <div class="card col-3 text-center">
+    <div class="container py-5">
+        <div class="card py-5 ">
+            <h1 class="text-center py-5"> DashBoard</h1>
+            <div class="row py-5 d-flex justify-content-around">
+                <div class="card col-3 text-center">
+                    <h3>Income</h3>
+                    <h3>$ {{alltotal}}</h3>
+                </div>
+                <div class="card col-3 text-center">
                     <h3>Expense</h3>
-                    <h3>${{total}}</h3>
+                    <h3>$ {{total}}</h3>
+                </div>
             </div>
+            <div class="card col-4 offset-4 my-5 text-center">
+                    <h3>TOTAL </h3>
+                    <h3>$ {{all}}</h3>
+                <!-- <div *ngIf="isProfit; else elseBlock">
+                    <h3>PROFIT </h3>
+                    <h3>$ {{all}}</h3>
+                </div>
+                <ng-template #elseBlock>
+                    <h3>LOSS </h3>
+                    <h3>$ {{allt}}</h3>
+                </ng-template> -->
+            </div>
+
         </div>
-        <div class="card col-4 offset-4 my-5 text-center">
-                <h3>Total</h3>
-                <h3>${{all}}</h3>
-        </div>
-        
     </div>
-</div>
 </div>

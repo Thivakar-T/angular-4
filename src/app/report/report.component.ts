@@ -9,7 +9,6 @@ import { ReportService } from '../report.service';
 })
 export class ReportComponent implements OnInit {
   date: any = {};
-  
   incomeArr: any = []
   expenseArr: any = []
   incomeArray: any = []
@@ -18,6 +17,8 @@ export class ReportComponent implements OnInit {
   total = 0;
   totall = 0;
   totalll = 0;
+  alt=-1;
+  isProfit=false;
   // cashinhand :any;
   constructor(private ResultService: ReportService,
   private router: Router, private route: ActivatedRoute) { }
@@ -48,28 +49,28 @@ export class ReportComponent implements OnInit {
   
   this.sumb()
   // this.push();
-  
   }, error => {
   console.log(error);
   })
   }
   submit(){
-  alert()
+    // incomeArr: any = []
+    // expenseArr: any = []
+    this.incomeArray = []
+    this.expenseArray = []
+  
+  // alert()
   console.log(this.incomeArr)
   console.log(this.expenseArr)
   
   for (let i = 0; i < this.expenseArr.length; i++) {
-  // alert("ttt")
   if (this.expenseArr[i].date >= this.date.fromDate && this.expenseArr[i].date <= this.date.toDate) {
-  // alert()
-  // this.router.navigate(['/ResultlistComponent'])
   this.expenseArray.push(this.expenseArr[i])
   console.log(this.expenseArray)
   }
   }
   for (let i = 0; i < this.incomeArr.length; i++) {
   if (this.incomeArr[i].date >= this.date.fromDate && this.incomeArr[i].date <= this.date.toDate) {
-  // this.router.navigate(['/ResultlistComponent'])
   this.incomeArray.push(this.incomeArr[i])
   console.log(this.incomeArray)
   
@@ -83,7 +84,7 @@ export class ReportComponent implements OnInit {
   }
   
   sum() {
-  
+    this.total=0
   for (let i = 0; i < this.incomeArray.length; i++) {
   this.total = Number(this.incomeArray[i].amount + this.total);
   
@@ -93,9 +94,10 @@ export class ReportComponent implements OnInit {
   console.log(this.total)
   }
   sumb() {
-  
+    this.totall=0;
+
   for (let i = 0; i < this.expenseArray.length; i++) {
-  this.totall = Number(this.expenseArray[i].amount + this.totall);
+  this.totall =this.expenseArray[i].amount + this.totall;
   this.cash();
   }
   console.log(this.totall)
@@ -103,8 +105,15 @@ export class ReportComponent implements OnInit {
   
   cash() {
   this.totalll = this.total - this.totall ;
+    // if(this.totalll>0){
+    //   this.totalll
+    //   this.isProfit=true;
+    // }
+    // else{
+    //   this.totalll=(this.totalll*this.alt)
+    // }
   console.log(this.totall);
   }
-  
+    
   }
   

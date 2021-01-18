@@ -17,6 +17,7 @@ import { ReportComponent } from './report/report.component';
 import { ReportlistComponent } from './reportlist/reportlist.component';
 import { EmptyComponent } from './empty/empty.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi: true},

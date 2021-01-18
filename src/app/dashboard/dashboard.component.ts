@@ -14,6 +14,9 @@ export class DashboardComponent implements OnInit {
   total = 0;
   alltotal = 0;
   all = 0;
+  allt=0
+  isProfit=false;
+  alt=-1;
   private value: any;
   id: any;
   constructor(
@@ -49,5 +52,13 @@ export class DashboardComponent implements OnInit {
   }
   alll(){
     this.all = this.alltotal - this.total;
+    // if(this.all>0){
+    //   this.all
+    //   this.isProfit=true;
+    // }
+    // else {
+    //   // this.allt=0;
+    //   this.allt=(this.all*this.alt)
+    // }
   }
 }

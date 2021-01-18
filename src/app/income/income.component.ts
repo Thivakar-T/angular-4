@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IncomeService } from '../income.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-income',
@@ -10,6 +11,9 @@ import { IncomeService } from '../income.service';
 export class IncomeComponent implements OnInit {
   incomeobj: any = {};
   id: any;
+  submitted = false;
+  registerForm?:NgForm;
+
   constructor(
     private IncomeService: IncomeService,
     private router: Router,
@@ -31,7 +35,8 @@ export class IncomeComponent implements OnInit {
   })
   }
   submit() {
-    
+    this.submitted = true;
+
     if (this.id) {
       this.IncomeService.editOneData(this.id, this.incomeobj).subscribe(res => {
         this.router.navigateByUrl('/IncomelistComponent');
